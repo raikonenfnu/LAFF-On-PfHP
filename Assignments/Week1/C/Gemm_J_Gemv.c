@@ -2,6 +2,8 @@
 #define beta( i,j )  B[ (j)*ldB + i ]   // map beta( i,j )  to array B
 #define gamma( i,j ) C[ (j)*ldC + i ]   // map gamma( i,j ) to array C
 
+// void MyGemv( int m, int n, double *A, int ldA,
+//            double *x, int incx, double *y, int incy )
 void MyGemv( int, int, double *, int, double *, int, double *, int );
 
 void MyGemm( int m, int n, int k,
@@ -10,6 +12,5 @@ void MyGemm( int m, int n, int k,
 	     double *C, int ldC )
 {
   for ( int j=0; j<n; j++ )
-    MyGemv(  ,  ,  ,  ,  ,  ,  ,   );
+    MyGemv(m,  k,  A,  ldA, &beta(0,j), 1, &gamma(0,j), 1);
 }
-  

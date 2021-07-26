@@ -2,11 +2,12 @@
 #define chi( i )  x[ (i)*incx ]         // map chi( i )  to array x
 #define psi( i )  y[ (i)*incy ]         // map psi( i )  to array y
 
+// void Axpy( int n, double alpha, double *x, int incx, double *y, int incy )
 void Axpy( int, double, double *, int, double *, int );
 
 void MyGer( int m, int n, double *x, int incx,
 		 double *y, int incy, double *A, int ldA )
 {
   for ( int i=0; i<m; i++ )
-    Axpy(  ,     ,    ,    ,      ,      );
+    Axpy(n, chi(i), y, incy, &alpha(i,0), ldA);
 }
